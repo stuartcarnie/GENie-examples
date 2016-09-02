@@ -1,0 +1,5 @@
+module clib {
+    umbrella "include"
+    link "clib"
+    export *
+}

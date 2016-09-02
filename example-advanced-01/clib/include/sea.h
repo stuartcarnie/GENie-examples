@@ -1,0 +1,1 @@
+extern int c_foo(const char * str);
