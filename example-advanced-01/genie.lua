@@ -21,32 +21,45 @@ configuration "Debug"
 configuration "Release"
 	flags       { "OptimizeSize" }
 
-project "swiftlib"
+project "Foobar"
 	language "Swift"
 	kind     "StaticLib"
 	
 	files {
-		"swiftlib/**.swift"
+		"foobar/**.swift"
 	}
 
-project "clib"
+project "c"
 	language "C"
 	kind     "StaticLib"
 	
 	files {
-		"clib/**.c",
+		"c/**.c",
 	}
 	
 	includedirs {
-		"clib/include",
+		"c/include",
 	}
+
+project "cxx"
+  	language "C++"
+  	kind     "StaticLib"
+	
+  	files {
+  		"cxx/**.cpp",
+  	}
+	
+  	includedirs {
+  		"cxx/include",
+  	}
 
 project "swiftexe"
 	language "Swift"
 	kind     "ConsoleApp"
 	swiftmodulemaps {
     -- todo: update GENie to move this directive to clib, where it belongs
-		"clib/module.modulemap",
+		"c/module.modulemap",
+    "cxx/module.modulemap",
 	}
 	
 	flags {
@@ -54,6 +67,7 @@ project "swiftexe"
 	}
 	
 	linkoptions_swift {
+    "-lc++"
 	}
 	
 	files {
@@ -61,6 +75,7 @@ project "swiftexe"
 	}
 	
 	links {
-		"clib",
-    "swiftlib",
+		"c",
+    "cxx",
+    "Foobar",
 	}

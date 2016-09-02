@@ -1,0 +1,5 @@
+module cxx {
+    umbrella "include"
+    link "cxx"
+    export *
+}

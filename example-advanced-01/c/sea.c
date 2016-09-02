@@ -1,4 +1,4 @@
-//#include "sea.h"
+#include "sea.h"
 #include <stdio.h>
 
 int c_foo(char const * str)

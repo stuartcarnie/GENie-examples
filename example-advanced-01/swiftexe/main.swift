@@ -1,9 +1,13 @@
-import clib
+import c
+import cxx
 import Foundation
-import swiftlib
+import Foobar
 
-let res = clib.c_foo("world")
-print("hello from clib: \(res)")
+let from_c = c.c_foo("world")
+print("hello from c: \(from_c)")
+
+let from_cxx = cxx.cpp_foo("world")
+print("hello from cxx: \(from_cxx)")
 
 let foo = Foo()
 foo.bar()
